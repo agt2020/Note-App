@@ -8,12 +8,14 @@ $config = require(base_path('config.php'));
 $db = new Database($config['database']);
 
 $note = $db->query('SELECT * FROM notes WHERE id = :id', [
-        'id' => $_GET['id']
+        'id' => $_POST['id']
 ])->findOrFail();
 
 authorize($note['user_id'] === $currentUser);
 
-require view('notes/show.view.php', [
-        'header' => 'Note',
-        'note' => $note
+$note = $db->query('DELETE FROM notes WHERE id = :id', [
+        'id' => $_POST['id']
 ]);
+
+header('location: /notes');
+die();
