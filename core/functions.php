@@ -14,7 +14,7 @@ function uriCheck($uri, $path)
         return $uri === $path;
 }
 
-function authorize($condition, $status = Response::FORBIDDEN)
+function authorize($condition, $status = Core\Response::FORBIDDEN)
 {
         if(!$condition)
         {

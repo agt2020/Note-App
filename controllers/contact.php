@@ -1,5 +1,6 @@
 <?php
 
 require view('contact.view.php', [
-        'header' => 'Contact'
+        'header' => 'Contact',
+        'uri' => $uri
 ]);

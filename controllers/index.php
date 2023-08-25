@@ -1,5 +1,6 @@
 <?php
 
 require view('index.view.php', [
-        'header' => 'Home'
+        'header' => 'Home',
+        'uri' => $uri
 ]);
