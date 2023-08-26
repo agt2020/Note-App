@@ -23,4 +23,5 @@ $router->get('/users/register', 'controllers/users/register.php')->only('guest')
 $router->post('/users/store', 'controllers/users/store.php')->only('guest');
 
 $router->get('/users/login', 'controllers/users/login.php')->only('guest');
-$router->get('/users/session', 'controllers/users/session.php')->only('guest');
+$router->post('/users/session', 'controllers/users/session.php')->only('guest');
+$router->delete('/users/logout', 'controllers/users/logout.php')->only('auth');
