@@ -32,8 +32,7 @@ if(! $user)
 
         $_SESSION['user']['email'] = $email;
 
-        header('location: /');
-        exit();
+        redirect('/');
 }
 else
 {
