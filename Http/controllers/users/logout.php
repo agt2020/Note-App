@@ -1,5 +1,5 @@
 <?php
 
-logout();
+Core\Session::destroy();
 
 redirect('/');
