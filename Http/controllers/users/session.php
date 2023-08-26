@@ -22,7 +22,6 @@ if (! empty($errors))
         return view('users/login.view.php',[
                 'errors' => $errors
         ]);
-        die();
 }
 
 // FETCH USER
@@ -49,4 +48,3 @@ return view('users/login.view.php',[
                 'email' => 'No matching account found for that email address and password.'
         ]
 ]);
-die();

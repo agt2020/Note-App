@@ -1,31 +1,20 @@
 <?php
 
 use Core\App;
-use Core\Validator;
 use Core\Database;
+use Http\Forms\LoginForm;
 
 $email = $_POST['email'];
 $password = $_POST['password'];
 
 $db = App::resolve(Database::class);
 
-$errors = [];
-// VALIDATE EMAIL
-if(! Validator::email($email))
-{
-        $errors['email'] = 'Please enter a valid email address !';
-}
-// VALIDATE PASSWORD
-if(! Validator::string($password, 7, 255))
-{
-        $errors['password'] = 'PLease enter a valid password with at least 7 charatcers !';
-}
-
-// CHECK ERRORS
-if(! empty($errors))
+// CHECK VALIDATION
+$form = new LoginForm();
+if(! $form->validate($email, $password))
 {
         return view('users/register.view.php',[
-                'errors' => $errors
+                'errors' => $form->errors()
         ]);
 }
 
@@ -48,6 +37,9 @@ if(! $user)
 }
 else
 {
-        header('location: /users/login');
-        exit();
+        return view('users/register.view.php',[
+                'errors' => [
+                        'email' => 'This User Already Exsit !'
+                ]
+        ]);
 }

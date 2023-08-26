@@ -1,27 +1,26 @@
 <?php
 
-$router->get('/', 'controllers/index.php');
-$router->get('/about', 'controllers/about.php');
-$router->get('/contact', 'controllers/contact.php');
+// PUBLIC
+$router->get('/', 'index.php');
+$router->get('/about', 'about.php');
+$router->get('/contact', 'contact.php');
 
 // NOTES
+$router->get('/note', 'notes/show.php');
+$router->get('/notes', 'notes/index.php')->only('auth');
 
-$router->get('/note', 'controllers/notes/show.php');
-$router->get('/notes', 'controllers/notes/index.php')->only('auth');
+$router->delete('/notes', 'notes/destroy.php');
 
-$router->delete('/notes', 'controllers/notes/destroy.php');
+$router->post('/notes/note-create', 'notes/store.php');
+$router->get('/notes/note-create', 'notes/create.php');
 
-$router->post('/notes/note-create', 'controllers/notes/store.php');
-$router->get('/notes/note-create', 'controllers/notes/create.php');
-
-$router->get('/notes/edit', 'controllers/notes/edit.php');
-$router->patch('/notes/edit', 'controllers/notes/update.php');
+$router->get('/notes/edit', 'notes/edit.php');
+$router->patch('/notes/edit', 'notes/update.php');
 
 // USERS
+$router->get('/users/register', 'users/register.php')->only('guest');
+$router->post('/users/store', 'users/store.php')->only('guest');
 
-$router->get('/users/register', 'controllers/users/register.php')->only('guest');
-$router->post('/users/store', 'controllers/users/store.php')->only('guest');
-
-$router->get('/users/login', 'controllers/users/login.php')->only('guest');
-$router->post('/users/session', 'controllers/users/session.php')->only('guest');
-$router->delete('/users/logout', 'controllers/users/logout.php')->only('auth');
+$router->get('/users/login', 'users/login.php')->only('guest');
+$router->post('/users/session', 'users/session.php')->only('guest');
+$router->delete('/users/logout', 'users/logout.php')->only('auth');
