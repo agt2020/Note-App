@@ -24,7 +24,7 @@ if(! Validator::string($password, 7, 255))
 // CHECK ERRORS
 if(! empty($errors))
 {
-        view('users/register.view.php',[
+        return view('users/register.view.php',[
                 'errors' => $errors
         ]);
 }
