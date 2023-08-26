@@ -1,6 +1,9 @@
 <?php
 
+session_start();
+
 const BASE_DIR = __DIR__ . '/../';
+
 require BASE_DIR . 'core/functions.php';
 
 spl_autoload_register(function($class){
