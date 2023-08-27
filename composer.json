@@ -9,11 +9,19 @@
             "email": "alfi.ghaffari@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "illuminate/collections": "^10.20",
+        "pestphp/pest": "^2.16"
+    },
     "autoload": {
         "psr-4": {
             "Core\\": "core/",
             "Http\\": "Http/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
         }
     }
 }
