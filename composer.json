@@ -1,0 +1,19 @@
+{
+    "name": "alfi/notes",
+    "description": "A light-wright Note App",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Abolfazl Ghaffari",
+            "email": "alfi.ghaffari@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Core\\": "core/",
+            "Http\\": "Http/"
+        }
+    }
+}
